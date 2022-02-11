@@ -13,7 +13,7 @@ class Collosion: NSObject, ObservableObject{
     
     @Published var neutronPath = [[(xPoint: Double, yPoint: Double)]]()
     @Published var meanFreePath = 1.0
-    @Published var beamDiameter = 0.5
+    @Published var beamHeight = 0.5
     @Published var numberOfNeutrons = 1.0
     @Published var energyAbsorbance = 10.0
     
@@ -24,16 +24,16 @@ class Collosion: NSObject, ObservableObject{
         var beamPath: [(xPoint: Double, yPoint: Double)] = []
         
         ///figuring out where the neutron will enter(the cordinate of the "entrance"
-        let beamRadius = beamDiameter/2
-        let wallCenter = wall.wallHeight/2
-        Point.yPoint = Double.random(in: (wallCenter-beamRadius)...(wallCenter+beamRadius))
-        
+       // let wallCenter = wall.wallHeight/2
+       // Point.yPoint = Double.random(in: (wallCenter-beamRadius)...(wallCenter+beamRadius))
+        Point.yPoint = beamHeight
         
         ///calculating the scattering
         var neutronEnergy = 100.0
         let energyAbsorbed = wall.energyAbsorbance
         
             Point.xPoint = Point.xPoint + meanFreePath
+            beamPath.append(Point)
             neutronEnergy = neutronEnergy - energyAbsorbed
         
         var check = true
@@ -48,7 +48,7 @@ class Collosion: NSObject, ObservableObject{
             
             check = await wall.calculateInsideWall(xPoint: Point.xPoint, yPoint: Point.yPoint)
             neutronEnergy = neutronEnergy - energyAbsorbed
-            print("current neutron energy:", neutronEnergy)
+          
         }
                 await updateNeutronPath(path: beamPath)
         

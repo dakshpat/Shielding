@@ -39,8 +39,8 @@ struct ContentView: View {
                     .padding()
                     
                     HStack{
-                        Text("Beam Diameter: ")
-                        TextField("beam diameter", value: $collosion.beamDiameter, format: .number)
+                        Text("Beam Height: ")
+                        TextField("beam Height", value: $collosion.beamHeight, format: .number)
                             .frame(width: 100)
 
                     }
@@ -80,8 +80,8 @@ struct ContentView: View {
                         
                         Task.init{
                             await runSimulation()
-
                         }
+                        print(collosion.beamHeight)
                     }
                     
                     Button("Clear"){
@@ -127,7 +127,7 @@ struct ContentView: View {
         wall.energyAbsorbance = 10.0
         wall.escapedCounter = 0.0
         collosion.meanFreePath = 1.0
-        collosion.beamDiameter = 0.5
+        collosion.beamHeight = 0.5
         collosion.numberOfNeutrons = 1.0
         collosion.neutronPath = [[(xPoint: 0.0, yPoint: 0.0)]]
     }

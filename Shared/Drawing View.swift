@@ -52,7 +52,7 @@ struct drawPath: Shape {
     
     func path(in rect: CGRect) -> Path {
         
-     //let origin = CGPoint(x: rect.width, y: rect.width)
+        //origin = CGPoint(x: rect.width, y: rect.width)
         let scale = rect.width/5
         
         var path = Path()
@@ -60,7 +60,7 @@ struct drawPath: Shape {
         for neutronPaths in drawingPoints{
             let pathArray = neutronPaths
             for item in pathArray{
-                path.addRect(CGRect(x: item.xPoint*Double(scale), y: item.yPoint*Double(scale), width: 5.0 , height: 5.0))
+                path.addRect(CGRect(x: item.xPoint*Double(scale), y: -item.yPoint*Double(scale)+rect.width, width: 5.0 , height: 5.0))
             }
         }
         return path
