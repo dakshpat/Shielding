@@ -21,6 +21,8 @@
 		B1AF652727B32277008E9129 /* Collision.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AF652527B32277008E9129 /* Collision.swift */; };
 		B1AF652927B325CF008E9129 /* Wall.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AF652827B325CF008E9129 /* Wall.swift */; };
 		B1AF652A27B325CF008E9129 /* Wall.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AF652827B325CF008E9129 /* Wall.swift */; };
+		B1AF656E27B45D92008E9129 /* Drawing View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AF656D27B45D92008E9129 /* Drawing View.swift */; };
+		B1AF656F27B45D92008E9129 /* Drawing View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AF656D27B45D92008E9129 /* Drawing View.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,7 @@
 		B1AF650F27B31EB5008E9129 /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
 		B1AF652527B32277008E9129 /* Collision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collision.swift; sourceTree = "<group>"; };
 		B1AF652827B325CF008E9129 /* Wall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wall.swift; sourceTree = "<group>"; };
+		B1AF656D27B45D92008E9129 /* Drawing View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Drawing View.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,9 +107,10 @@
 			isa = PBXGroup;
 			children = (
 				B1AF64E927B31EB2008E9129 /* ShieldingApp.swift */,
+				B1AF64EA27B31EB2008E9129 /* ContentView.swift */,
 				B1AF652827B325CF008E9129 /* Wall.swift */,
 				B1AF652527B32277008E9129 /* Collision.swift */,
-				B1AF64EA27B31EB2008E9129 /* ContentView.swift */,
+				B1AF656D27B45D92008E9129 /* Drawing View.swift */,
 				B1AF64EB27B31EB5008E9129 /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -307,6 +311,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1AF656E27B45D92008E9129 /* Drawing View.swift in Sources */,
 				B1AF651327B31EB5008E9129 /* ContentView.swift in Sources */,
 				B1AF652927B325CF008E9129 /* Wall.swift in Sources */,
 				B1AF652627B32277008E9129 /* Collision.swift in Sources */,
@@ -318,6 +323,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1AF656F27B45D92008E9129 /* Drawing View.swift in Sources */,
 				B1AF651427B31EB5008E9129 /* ContentView.swift in Sources */,
 				B1AF652A27B325CF008E9129 /* Wall.swift in Sources */,
 				B1AF652727B32277008E9129 /* Collision.swift in Sources */,

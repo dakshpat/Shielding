@@ -12,12 +12,14 @@ class Collosion: NSObject, ObservableObject{
     
     
     @Published var neutronPath = [[(xPoint: Double, yPoint: Double)]]()
-    var meanFreePath = 0.0
-    var beamDiameter = 0.0
-    var numberOfNeutrons = 0.0
+    @Published var meanFreePath = 1.0
+    @Published var beamDiameter = 0.5
+    @Published var numberOfNeutrons = 1.0
+    @Published var energyAbsorbance = 10.0
     
     func calculateRandomWalk() async {
         let wall = Wall()
+        wall.energyAbsorbance = energyAbsorbance
         var Point = (xPoint: 0.0, yPoint: 0.0)
         var beamPath: [(xPoint: Double, yPoint: Double)] = []
         
@@ -30,6 +32,7 @@ class Collosion: NSObject, ObservableObject{
         ///calculating the scattering
         var neutronEnergy = 100.0
         var firstTimeThoughLoop = true
+        let energyAbsorbed = wall.energyAbsorbance
         
         if (firstTimeThoughLoop){
             Point.xPoint = Point.xPoint + meanFreePath
@@ -48,7 +51,8 @@ class Collosion: NSObject, ObservableObject{
             beamPath.append(Point)
             
             check = await wall.calculateInsideWall(xPoint: Point.xPoint, yPoint: Point.yPoint)
-            neutronEnergy = neutronEnergy - wall.energyAbsorbance
+            neutronEnergy = neutronEnergy - energyAbsorbed
+            print("current neutron energy:", neutronEnergy)
         }
                 await updateNeutronPath(path: beamPath)
     }

@@ -10,10 +10,11 @@ import SwiftUI
 
 class Wall: NSObject, ObservableObject {
     
-    @Published var wallHeight = 0.0
-    @Published var wallThickness = 0.0
-    @Published var energyAbsorbance = 0.0
-    @Published var escapedCounter = 0.0
+    @Published  var wallHeight = 5.0
+    @Published  var wallThickness = 5.0
+    ///in % the amount of energy the neutron will lose per hit(default 10%)
+    @Published  var energyAbsorbance = 10.0
+    @Published  var escapedCounter = 0.0
     
     ///takes in an x and y coordinate and returns true if that point is inside the wall
     func calculateInsideWall(xPoint: Double, yPoint: Double) async -> Bool{
@@ -23,7 +24,7 @@ class Wall: NSObject, ObservableObject {
             isItInside = true
         }
         
-        if (isItInside == false){
+        else {
            let escape = await escapedCounter(xPoint: xPoint, yPoint: yPoint)
            await updateEscapedCounter(escaped: escape)
         }
