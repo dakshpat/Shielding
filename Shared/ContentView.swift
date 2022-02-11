@@ -80,11 +80,7 @@ struct ContentView: View {
                         
                         Task.init{
                             await runSimulation()
-                            print("number of neutrons", collosion.numberOfNeutrons)
-                            print("E-loss", wall.energyAbsorbance)
-                            print("escaped #", wall.escapedCounter)
-                            print("wall height", wall.wallHeight)
-                            print("meanfreepath", collosion.meanFreePath)
+
                         }
                     }
                     
