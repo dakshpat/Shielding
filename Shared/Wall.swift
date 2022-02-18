@@ -24,36 +24,8 @@ class Wall: NSObject, ObservableObject {
             isItInside = true
         }
         
-        else {
-           let escape = await escapedCounter(xPoint: xPoint, yPoint: yPoint)
-           await updateEscapedCounter(escaped: escape)
-        }
         
         return isItInside
     }
-    
-    ///if the neutron has escaped, then by looking at its end point it either counts it or dosen't. We dont not care if it escapes from the back
-    
-    func escapedCounter(xPoint: Double, yPoint:Double) async -> Double{
-        var doWeCare = true
-        
-        ///check if it escapes from the back
-        if (xPoint < 0.0) {
-            doWeCare = false
-        }
-        
-        var escaped = 0.0
-        if (doWeCare){
-            escaped = 1.0
-        }
-        
-        return escaped
-    }
-    
-    @MainActor func updateEscapedCounter(escaped: Double){
-        escapedCounter += escaped
-    }
-
-    
     
 }

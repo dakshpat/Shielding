@@ -81,7 +81,6 @@ struct ContentView: View {
                         Task.init{
                             await runSimulation()
                         }
-                        print(collosion.beamHeight)
                     }
                     
                     Button("Clear"){
@@ -92,7 +91,8 @@ struct ContentView: View {
             
             VStack(alignment: .center){
                 
-                Text("Percentage of neutrons that escaped: \(percentageEscaped, specifier: "%.2f")")
+                Text("Fraction of neutrons that escaped: \(percentageEscaped, specifier: "%.2f")")
+                    .padding()
                 
                 
                 drawingView(path: collosion.neutronPath )
@@ -117,7 +117,7 @@ struct ContentView: View {
             n += 1.0
         }
                 
-        percentageEscaped = wall.escapedCounter/collosion.numberOfNeutrons
+        percentageEscaped = collosion.escapedCounter/collosion.numberOfNeutrons
     }
     
     func clear(){
@@ -125,11 +125,12 @@ struct ContentView: View {
         wall.wallHeight = 5.0
         wall.wallThickness = 5.0
         wall.energyAbsorbance = 10.0
-        wall.escapedCounter = 0.0
+        collosion.escapedCounter = 0.0
         collosion.meanFreePath = 1.0
-        collosion.beamHeight = 0.5
+        collosion.beamHeight = 2.5
         collosion.numberOfNeutrons = 1.0
         collosion.neutronPath = [[(xPoint: 0.0, yPoint: 0.0)]]
+        percentageEscaped = 0.0
     }
     
 }
